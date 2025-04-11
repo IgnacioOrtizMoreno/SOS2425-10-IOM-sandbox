@@ -1,6 +1,6 @@
 import express from "express";
 import { loadBackEnd } from "./src/back/index.js";
-
+import {handler} from './src/front/build/handler.js'
 const app = express();
 const PORT = process.env.PORT || 16078;
 
@@ -11,7 +11,8 @@ app.use(express.json());
 loadBackEnd(app);
 
 // Servir contenido estático desde ./static
-app.use("/", express.static("./static"));
+//app.use("/", express.static("./static"));
+app.use(handler);
 
 // Ruta por defecto (útil para test rápido en navegador)
 app.get("/", (req, res) => {
