@@ -54,6 +54,10 @@ function loadBackEnd(app){
             }
         });
     })
+
+    app.get(BASE_API+"/docs",(request,response)=>{
+        response.redirect("https://documenter.getpostman.com/view/42127435/2sB2cPjkAC");
+    })
 }
 
 
